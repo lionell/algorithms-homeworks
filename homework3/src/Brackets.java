@@ -1,7 +1,5 @@
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -9,17 +7,18 @@ import java.util.StringTokenizer;
 
 /**
  * Created by lionell on 11/29/15.
- *
+ * <p>
  * Idea
- * Let's divide sequence into simple and another sequence(not always simple).
+ * Let'sequence divide sequence into simple and another sequence(not always simple).
  * Sequence = Simple + Sequence
  * All sequences can be divided in such way.
- * So let's iterate with m(stands for mid), and try to divide sequence [l, r]
+ * So let'sequence iterate with m(stands for mid), and try to divide sequence [l, r]
  * into simple sequence [l, m] and another sequence [m + 1, r].
  * SequenceCount = sum m from l + 1 to r :
- *  SimpleSequenceCount[l, m] * SequenceCount[m + 1, r]
+ * SimpleSequenceCount[l, m] * SequenceCount[m + 1, r]
  * Time complexity: O(N^3)
  * NOTE! We need O(N^2) additional memory to store already evaluated values.
+ * </p>
  *
  * @author Ruslan Sakevych
  */
@@ -40,30 +39,32 @@ public class Brackets {
     private static String format(int count, boolean isOverflow) {
         if (isOverflow) {
             return String.format("%05d", count);
-        } else {
-            return String.format("%d", count);
         }
+        return String.format("%d", count);
     }
 
     private static class CorrectBracketSequenceCounter {
         private static final int MOD = 100000;
         private boolean overflow = false;
         private int n;
-        private String s;
+        private String sequence;
         private int[][] sequenceCache;
         private int[][] simpleSequenceCache;
 
-        public CorrectBracketSequenceCounter(int n, String s) {
+        public CorrectBracketSequenceCounter(int n, String sequence) {
             this.n = n;
-            this.s = s;
+            this.sequence = sequence;
             initCache();
         }
 
         private void initCache() {
-            sequenceCache = new int[n + 1][n + 1];
-            simpleSequenceCache = new int[n + 1][n + 1];
-            for (int i = 0; i < n + 1; i++) {
-                for (int j = 0; j < n + 1; j++) {
+            final int MAX_SEQUENCE_LENGTH = n + 1;
+            sequenceCache =
+                    new int[MAX_SEQUENCE_LENGTH][MAX_SEQUENCE_LENGTH];
+            simpleSequenceCache =
+                    new int[MAX_SEQUENCE_LENGTH][MAX_SEQUENCE_LENGTH];
+            for (int i = 0; i < MAX_SEQUENCE_LENGTH; i++) {
+                for (int j = 0; j < MAX_SEQUENCE_LENGTH; j++) {
                     sequenceCache[i][j] = -1;
                     simpleSequenceCache[i][j] = -1;
                 }
@@ -106,7 +107,7 @@ public class Brackets {
 
         private int evaluateSimpleSequence(int l, int r) {
             long sum = 0L;
-            String brackets = "" + s.charAt(l) + s.charAt(r);
+            String brackets = "" + sequence.charAt(l) + sequence.charAt(r);
             if (brackets.equals("()") ||
                     brackets.equals("[]") ||
                     brackets.equals("{}") ||
@@ -121,7 +122,7 @@ public class Brackets {
             if (brackets.equals("??")) {
                 sum = 3L;
             }
-            sum *= (long) getSequenceCount(l + 1, r - 1);
+            sum *= getSequenceCount(l + 1, r - 1);
             sum = getModulo(sum);
             return (int) sum;
         }
@@ -145,14 +146,6 @@ public class Brackets {
 
         public Reader() {
             reader = new BufferedReader(new InputStreamReader(System.in));
-        }
-
-        public Reader(String s) {
-            try {
-                reader = new BufferedReader(new FileReader(s));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
         }
 
         public String nextToken() {
