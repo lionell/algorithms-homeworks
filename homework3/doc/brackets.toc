@@ -1,0 +1,5 @@
+\select@language {ukrainian}
+\contentsline {section}{\numberline {1}\IeC {\CYRP }\IeC {\cyro }\IeC {\cyrn }\IeC {\cyrya }\IeC {\cyrt }\IeC {\cyrt }\IeC {\cyrya } \IeC {\cyrt }\IeC {\cyra } \IeC {\cyrp }\IeC {\cyro }\IeC {\cyrz }\IeC {\cyrn }\IeC {\cyra }\IeC {\cyrch }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyrn }\IeC {\cyrya }}{1}
+\contentsline {section}{\numberline {2}\IeC {\CYRA }\IeC {\cyrl }\IeC {\cyrg }\IeC {\cyro }\IeC {\cyrr }\IeC {\cyri }\IeC {\cyrt }\IeC {\cyrm }}{1}
+\contentsline {subsection}{\numberline {2.1}\IeC {\CYRR }\IeC {\cyro }\IeC {\cyrz }\IeC {\cyrb }\IeC {\cyri }\IeC {\cyrt }\IeC {\cyrt }\IeC {\cyrya } \IeC {\CYRP }\IeC {\CYRD }\IeC {\CYRP }}{1}
+\contentsline {subsection}{\numberline {2.2}\IeC {\CYRP }\IeC {\cyrii }\IeC {\cyrd }\IeC {\cyrr }\IeC {\cyra }\IeC {\cyrh }\IeC {\cyru }\IeC {\cyrn }\IeC {\cyro }\IeC {\cyrk } $f(l, r)$}{1}
